@@ -3,7 +3,7 @@ Iterator Includes
 
 A TC39 proposal to allow the developer to ask whether an iterator yields a given value. Analogue to `Array.prototype.includes`.
 
-**Stage: 0**
+**Stage: 2.7**
 
 **Specification:** [https://michaelficarra.github.io/proposal-iterator-includes](https://michaelficarra.github.io/proposal-iterator-includes)
 
