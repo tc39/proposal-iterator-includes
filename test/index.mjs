@@ -56,7 +56,7 @@ test('zeroes', async t => {
   assert.equal(negative.values().includes(-0), true);
 });
 
-test('closes iterator', async t => {
+test('closes iterator after succeeding', async t => {
   let closed = false;
   let i = 0;
   let iter = {
@@ -73,6 +73,50 @@ test('closes iterator', async t => {
 
   assert.equal(iter.includes(5), true);
   assert.equal(closed, true);
+});
+
+test('closes iterator after invalid second parameter', async t => {
+  {
+    let closed = false;
+    let i = 0;
+    let iter = {
+      __proto__: Iterator.prototype,
+      next() {
+        ++i;
+        return { value: i, done: false };
+      },
+      return() {
+        closed = true;
+        return { value: undefined, done: true };
+      },
+    };
+
+    assert.throws(() => {
+      iter.includes(null, -2);
+    }, RangeError);
+    assert.equal(closed, true);
+  }
+
+  {
+    let closed = false;
+    let i = 0;
+    let iter = {
+      __proto__: Iterator.prototype,
+      next() {
+        ++i;
+        return { value: i, done: false };
+      },
+      return() {
+        closed = true;
+        return { value: undefined, done: true };
+      },
+    };
+
+    assert.throws(() => {
+      iter.includes(null, 'a string');
+    }, TypeError);
+    assert.equal(closed, true);
+  }
 });
 
 test('skipped elements', async t => {
