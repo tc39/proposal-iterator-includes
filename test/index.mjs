@@ -67,7 +67,7 @@ test('closes iterator after succeeding', async t => {
     },
     return() {
       closed = true;
-      return { value: undefined, done: true };
+      throw new Error;
     },
   };
 
@@ -87,7 +87,7 @@ test('closes iterator after invalid second parameter', async t => {
       },
       return() {
         closed = true;
-        return { value: undefined, done: true };
+        throw new Error;
       },
     };
 
@@ -108,7 +108,7 @@ test('closes iterator after invalid second parameter', async t => {
       },
       return() {
         closed = true;
-        return { value: undefined, done: true };
+        throw new Error;
       },
     };
 
