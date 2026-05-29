@@ -180,6 +180,10 @@ test('skipped elements', async t => {
     assert.equal([4, 5, 6, 7].values().includes(7, 5), false);
   });
 
+  await test('Number.MAX_SAFE_INTEGER', async t => {
+    assert.equal([0].values().includes(0, Number.MAX_SAFE_INTEGER), false);
+  });
+
   await test('positive non-integral', async t => {
     assert.throws(() => {
       [].values().includes(0, 0.1);
@@ -214,6 +218,15 @@ test('skipped elements', async t => {
     assert.throws(() => {
       [].values().includes(0, { valueOf() { return 0; } });
     }, TypeError);
+  });
+
+  await test('greater than Number.MAX_SAFE_INTEGER', async t => {
+    assert.throws(() => {
+      [].values().includes(0, Number.MAX_SAFE_INTEGER + 1);
+    }, RangeError);
+    assert.throws(() => {
+      [].values().includes(0, Number.MAX_SAFE_INTEGER + 3);
+    }, RangeError);
   });
 });
 
