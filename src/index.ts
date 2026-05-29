@@ -7,7 +7,7 @@ function includes<T>(this: IterableIterator<T>, searchElement: T, skippedElement
     }
     toSkip = skippedElements as number;
   }
-  if (toSkip < 0) {
+  if (toSkip < 0 || Number.isFinite(toSkip) && toSkip > Number.MAX_SAFE_INTEGER) {
     try { this.return?.(); } catch {}
     throw new RangeError;
   }

@@ -25,6 +25,9 @@ copyright: false
     1. If _toSkip_ &lt; *-0*<sub>𝔽</sub>, then
       1. Let _error_ be ThrowCompletion(a newly created *RangeError* object).
       1. Return ? IteratorClose(_iterated_, _error_).
+    1. If _toSkip_ is finite and _toSkip_ > 𝔽(2<sup>53</sup> - 1), then
+      1. Let _error_ be ThrowCompletion(a newly created *RangeError* object).
+      1. Return ? IteratorClose(_iterated_, _error_).
     1. Let _skipped_ be *+0*<sub>𝔽</sub>.
     1. Set _iterated_ to ? GetIteratorDirect(_O_).
     1. Repeat,
