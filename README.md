@@ -3,12 +3,14 @@ Iterator Includes
 
 A TC39 proposal to allow the developer to ask whether an iterator yields a given value. Analogue to `Array.prototype.includes`.
 
-**Stage:** 3. Further advancement is dependent on 2 or more shipping implementations.
+**Stage:** 4. Further advancement is dependent on 2 or more shipping implementations.
 
 **Specification:** [https://tc39.es/proposal-iterator-includes/](https://tc39.es/proposal-iterator-includes/)
 
 ## presentations to committee
 
+- [September 2026](https://docs.google.com/presentation/d/1uLfWHUpPjWWjPQTaiuhIAT9WdFO7pAroKlY049rkGJA)
+- May 2026 (no slides)
 - [March 2026](https://docs.google.com/presentation/d/1a-1RQayP-tcJd2VAhFGoiL_dRT8gD8_qrp__qSgC1A4)
 
 ## motivation
